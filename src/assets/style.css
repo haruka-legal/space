@@ -1,20 +1,20 @@
 /* ============================================================
-   宇宙海事レビュー  style.css
-   コンセプト: シンクタンク × 宇宙 × 海
-   シグネチャ: 「水平線」— 宇宙(紺)と海(青)の境界を示す細いグラデーション帯
-   Webフォント不使用・JS不使用（検索ページを除く）
+   螳�ｮ呎ｵｷ莠九Ξ繝薙Η繝ｼ  style.css
+   繧ｳ繝ｳ繧ｻ繝励ヨ: 繧ｷ繝ｳ繧ｯ繧ｿ繝ｳ繧ｯ ﾃ� 螳�ｮ� ﾃ� 豬ｷ
+   繧ｷ繧ｰ繝阪メ繝｣: 縲梧ｰｴ蟷ｳ邱壹坂� 螳�ｮ�(邏ｺ)縺ｨ豬ｷ(髱�)縺ｮ蠅�阜繧堤､ｺ縺咏ｴｰ縺�げ繝ｩ繝��繧ｷ繝ｧ繝ｳ蟶ｯ
+   Web繝輔か繝ｳ繝井ｸ堺ｽｿ逕ｨ繝ｻJS荳堺ｽｿ逕ｨ�域､懃ｴ｢繝壹�繧ｸ繧帝勁縺擾ｼ�
    ============================================================ */
 
 :root {
-  --space:   #060d1f;   /* 深宇宙 */
-  --navy:    #0b1f3a;   /* 宙紺 */
-  --sea:     #10457a;   /* 海青 */
-  --horizon: #5fa8d3;   /* 水平線 */
-  --gold:    #c4a15e;   /* 事務所ブランドのゴールド */
-  --paper:   #fbfcfd;   /* 紙白 */
-  --ink:     #1b2635;   /* 本文墨色 */
-  --muted:   #5a6b80;   /* 補足テキスト */
-  --line:    #dde4ec;   /* 罫線 */
+  --space:   #060d1f;   /* 豺ｱ螳�ｮ� */
+  --navy:    #0b1f3a;   /* 螳咏ｴｺ */
+  --sea:     #10457a;   /* 豬ｷ髱� */
+  --horizon: #5fa8d3;   /* 豌ｴ蟷ｳ邱� */
+  --gold:    #c4a15e;   /* 莠句漁謇繝悶Λ繝ｳ繝峨�繧ｴ繝ｼ繝ｫ繝� */
+  --paper:   #fbfcfd;   /* 邏咏區 */
+  --ink:     #1b2635;   /* 譛ｬ譁�｢ｨ濶ｲ */
+  --muted:   #5a6b80;   /* 陬懆ｶｳ繝�く繧ｹ繝� */
+  --line:    #dde4ec;   /* 鄂ｫ邱� */
   --serif: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", "YuMincho", "Noto Serif JP", serif;
   --sans: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
 }
@@ -48,14 +48,14 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 
 :focus-visible { outline: 2px solid var(--horizon); outline-offset: 2px; }
 
-/* ---- シグネチャ: 水平線 ---- */
+/* ---- 繧ｷ繧ｰ繝阪メ繝｣: 豌ｴ蟷ｳ邱� ---- */
 .horizon {
   height: 3px;
   background: linear-gradient(90deg, var(--space) 0%, var(--sea) 35%, var(--horizon) 50%, var(--sea) 65%, var(--space) 100%);
 }
 .horizon-up { opacity: .9; }
 
-/* ---- ヘッダー ---- */
+/* ---- 繝倥ャ繝繝ｼ ---- */
 .site-header { background: var(--space); color: #fff; }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -92,7 +92,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
   .header-inner { flex-direction: column; align-items: flex-start; }
 }
 
-/* ---- ヒーロー（トップ） ---- */
+/* ---- 繝偵�繝ｭ繝ｼ�医ヨ繝���� ---- */
 .hero {
   position: relative;
   background: var(--space);
@@ -103,23 +103,24 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 .hero-bg {
   position: absolute; inset: 0;
   background-size: cover;
-  background-position: center 40%;
-  opacity: .55;
+  background-position: center 55%;
+  opacity: .9;
 }
 .hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(180deg,
-    rgba(6,13,31,.55) 0%,
-    rgba(6,13,31,.35) 40%,
-    rgba(11,31,58,.75) 75%,
+    rgba(6,13,31,.35) 0%,
+    rgba(6,13,31,.1) 35%,
+    rgba(11,31,58,.35) 70%,
     var(--sea) 100%);
 }
 .hero .wrap { position: relative; z-index: 1; }
 .hero h1 {
   color: #fff; font-size: clamp(1.6rem, 4.5vw, 2.5rem);
   margin: 0 0 1.2rem; letter-spacing: .04em;
+  text-shadow: 0 2px 16px rgba(0,0,0,.45);
 }
-.hero p { max-width: 40rem; color: #d5e2ee; margin: 0 0 .6rem; }
+.hero p { max-width: 40rem; color: #d5e2ee; margin: 0 0 .6rem; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
 .hero .hero-domains { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 .hero .hero-domains a {
   color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.35);
@@ -127,7 +128,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 }
 .hero .hero-domains a:hover { border-color: var(--gold); color: var(--gold); }
 
-/* ---- セクション ---- */
+/* ---- 繧ｻ繧ｯ繧ｷ繝ｧ繝ｳ ---- */
 .section { padding: 3.5rem 0 1rem; }
 .section-title {
   font-size: 1.3rem; margin: 0 0 1.6rem;
@@ -135,7 +136,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 }
 .section-more { text-align: right; font-size: .9rem; margin: 1rem 0 0; }
 
-/* ---- 記事カード ---- */
+/* ---- 險倅ｺ九き繝ｼ繝� ---- */
 .card-list {
   list-style: none; margin: 0; padding: 0;
   display: grid; gap: 1.1rem;
@@ -158,7 +159,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 .card-desc { font-size: .85rem; color: var(--muted); line-height: 1.7; margin: 0 0 .7rem; }
 .card-date { font-size: .78rem; color: var(--muted); }
 
-/* ---- カテゴリ一覧 ---- */
+/* ---- 繧ｫ繝�ざ繝ｪ荳隕ｧ ---- */
 .cat-group { margin-bottom: 2.5rem; }
 .cat-group h2 { font-size: 1.15rem; letter-spacing: .1em; }
 .cat-grid { list-style: none; padding: 0; display: grid; gap: .8rem; grid-template-columns: 1fr; }
@@ -168,11 +169,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 .cat-grid .cat-count { color: var(--muted); font-size: .8rem; margin-left: .5rem; }
 .cat-grid .cat-desc { color: var(--muted); font-size: .82rem; margin: .3rem 0 0; line-height: 1.7; }
 
-/* ---- 記事ページ ---- */
+/* ---- 險倅ｺ九�繝ｼ繧ｸ ---- */
 .article { padding: 2rem 1.25rem 3rem; }
 .breadcrumbs { font-size: .78rem; color: var(--muted); }
 .breadcrumbs ol { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-wrap: wrap; }
-.breadcrumbs li + li::before { content: "›"; margin: 0 .5em; color: var(--line); }
+.breadcrumbs li + li::before { content: "窶ｺ"; margin: 0 .5em; color: var(--line); }
 .breadcrumbs a { color: var(--muted); }
 
 .article-category a { font-size: .78rem; letter-spacing: .18em; color: var(--sea); text-decoration: none; }
@@ -221,7 +222,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 
 .related h2 { font-size: 1.2rem; margin: 2.5rem 0 1.2rem; }
 
-/* ---- ページ共通（一覧・固定ページ） ---- */
+/* ---- 繝壹�繧ｸ蜈ｱ騾夲ｼ井ｸ隕ｧ繝ｻ蝗ｺ螳壹�繝ｼ繧ｸ�� ---- */
 .page-header { padding: 2.5rem 0 1.5rem; }
 .page-header h1 { font-size: clamp(1.4rem, 4vw, 1.8rem); margin: 0 0 .5rem; position: relative; }
 .page-header h1::after {
@@ -232,7 +233,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 .page-body { padding-bottom: 3rem; }
 .page-body h2 { font-size: 1.25rem; margin: 2.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--line); }
 
-/* ---- ページネーション ---- */
+/* ---- 繝壹�繧ｸ繝阪�繧ｷ繝ｧ繝ｳ ---- */
 .pagination { display: flex; justify-content: center; gap: .5rem; margin: 2.5rem 0; flex-wrap: wrap; }
 .pagination a, .pagination span {
   border: 1px solid var(--line); padding: .35rem .8rem;
@@ -240,12 +241,12 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 }
 .pagination [aria-current="page"] { background: var(--navy); color: #fff; border-color: var(--navy); }
 
-/* ---- タグ一覧 ---- */
+/* ---- 繧ｿ繧ｰ荳隕ｧ ---- */
 .tag-cloud { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; }
 .tag-cloud a { text-decoration: none; }
 .tag-cloud .count { color: var(--muted); font-size: .8rem; }
 
-/* ---- フッター ---- */
+/* ---- 繝輔ャ繧ｿ繝ｼ ---- */
 .site-footer { background: var(--space); color: #b9c8d8; margin-top: 4rem; }
 .footer-inner { padding: 2.5rem 1.25rem 2rem; }
 .footer-name { font-family: var(--serif); color: #fff; font-size: 1.1rem; margin: 0 0 .3rem; }
@@ -257,12 +258,12 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
 .footer-note { font-size: .75rem; color: #8496aa; margin: 0 0 .5rem; }
 .copyright { font-size: .78rem; color: #8496aa; margin: 0; }
 
-/* ---- 動きの抑制設定を尊重 ---- */
+/* ---- 蜍輔″縺ｮ謚大宛險ｭ螳壹ｒ蟆企㍾ ---- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-/* ---- 代表挨拶（プロフィール） ---- */
+/* ---- 莉｣陦ｨ謖ｨ諡ｶ�医�繝ｭ繝輔ぅ繝ｼ繝ｫ�� ---- */
 .section-eyebrow {
   font-size: .72rem; letter-spacing: .3em; text-transform: uppercase;
   color: var(--horizon); margin: 0 0 .3rem;
@@ -295,7 +296,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.5; colo
   padding: .25rem .8rem; border-radius: 999px;
 }
 
-/* ---- お知らせバナー（開業準備中など） ---- */
+/* ---- 縺顔衍繧峨○繝舌リ繝ｼ�磯幕讌ｭ貅門ｙ荳ｭ縺ｪ縺ｩ�� ---- */
 .site-notice {
   background: #f3ede0;
   border-bottom: 1px solid #e3d7bd;
