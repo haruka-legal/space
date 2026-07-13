@@ -1,0 +1,60 @@
+---
+layout: layouts/base.njk
+permalink: /
+---
+<section class="hero">
+  <div class="hero-bg" style="background-image: url('/assets/images/hero-earth.webp')"></div>
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <h1>海と宇宙の産業を、<br>制度の言葉で読み解く。</h1>
+    <p>ロケット射場と港湾、人工衛星と海上輸送、宇宙港と船舶——。海と宇宙は、産業の現場で深くつながっています。</p>
+    <p>{{ site.name }}は、その両分野を行政手続・制度・法務の視点から解説する専門メディアです。</p>
+    <div class="hero-domains">
+      <a href="/categories/#space">宇宙の制度を読む</a>
+      <a href="/categories/#maritime">海事の制度を読む</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">新着記事</h2>
+    <ul class="card-list cols-3">
+      {% for a in collections.articles | limit(6) %}
+      {% include "partials/article-card.njk" %}
+      {% endfor %}
+    </ul>
+    <p class="section-more"><a href="/articles/">記事一覧を見る →</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">カテゴリから読む</h2>
+    {% for group in categories %}
+    <div class="cat-group">
+      <h2 id="top-{{ group.slug }}">{{ group.name }}</h2>
+      <ul class="cat-grid">
+        {% for c in group.items %}
+        {% set count = collections.articles | byCategory(c.slug) | length %}
+        {% if count > 0 %}
+        <li><a href="/categories/{{ c.slug }}/">
+          <span class="cat-name">{{ c.name }}</span><span class="cat-count">{{ count }}件</span>
+          <p class="cat-desc">{{ c.description }}</p>
+        </a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+    <p class="section-more"><a href="/categories/">すべてのカテゴリを見る →</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap-narrow">
+    <h2 class="section-title">このメディアについて</h2>
+    <p>{{ site.name }}は、行政書士 {{ site.author.name }} が運営する専門メディアです。宇宙活動法・宇宙資源法をはじめとする宇宙法制と、船舶・港湾・海上運送をめぐる海事制度を、行政手続の実務家の視点から継続的に解説しています。</p>
+    <p><a href="/profile/">運営者プロフィール →</a></p>
+  </div>
+</section>

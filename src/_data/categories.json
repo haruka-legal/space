@@ -1,0 +1,45 @@
+[
+  {
+    "name": "宇宙",
+    "slug": "space",
+    "items": [
+      { "slug": "space-activities-act", "name": "宇宙活動法", "description": "人工衛星等の打上げ・管理に関する法律（宇宙活動法）の制度解説と実務上の論点。" },
+      { "slug": "space-resources-act", "name": "宇宙資源法", "description": "宇宙資源の探査・開発に関する事業活動の促進に関する法律をめぐる制度と動向。" },
+      { "slug": "space-policy", "name": "宇宙政策", "description": "宇宙基本計画をはじめとする日本の宇宙政策と、その産業への影響。" },
+      { "slug": "space-business", "name": "宇宙ビジネス", "description": "宇宙産業のビジネス動向を、制度・行政手続の観点から解説。" },
+      { "slug": "rocket", "name": "ロケット", "description": "ロケット開発・打上げをめぐる許認可、射場、安全規制。" },
+      { "slug": "satellite", "name": "人工衛星", "description": "人工衛星の打上げ・管理・リモートセンシングに関わる制度。" },
+      { "slug": "spaceport", "name": "宇宙港", "description": "国内外の宇宙港（スペースポート）整備と、港湾・空港制度との接点。" },
+      { "slug": "space-station", "name": "ISS・宇宙ステーション", "description": "ISSと民間宇宙ステーションをめぐる利用制度・国際枠組み。" },
+      { "slug": "space-startup", "name": "宇宙スタートアップ", "description": "宇宙スタートアップの設立・資金調達・許認可・補助金。" },
+      { "slug": "space-global", "name": "海外宇宙制度", "description": "米国・欧州ほか海外の宇宙法制と、日本制度との比較。" },
+      { "slug": "space-news", "name": "宇宙ニュース解説", "description": "宇宙分野のニュースを制度・行政の視点で解説。" }
+    ]
+  },
+  {
+    "name": "海事",
+    "slug": "maritime",
+    "items": [
+      { "slug": "ship", "name": "船舶", "description": "船舶の登録・検査・トン数測度など船舶をめぐる行政手続。" },
+      { "slug": "seafarer", "name": "船員", "description": "船員法・船員職業安定法など、船員に関する制度と手続。" },
+      { "slug": "port", "name": "港湾", "description": "港湾法・港則法など、港湾の管理・利用に関する制度。" },
+      { "slug": "marine-transport", "name": "海上運送", "description": "海上運送法・内航海運業法など、海上輸送事業の制度。" },
+      { "slug": "maritime-law", "name": "海事法", "description": "海事関連法令の体系と改正動向。" },
+      { "slug": "maritime-admin", "name": "海事行政", "description": "国土交通省・運輸局による海事行政の仕組みと手続。" },
+      { "slug": "kaijidairishi", "name": "海事代理士コラム", "description": "海事代理士制度・試験・業務に関するコラム。" }
+    ]
+  },
+  {
+    "name": "共通",
+    "slug": "common",
+    "items": [
+      { "slug": "foreign-engineer", "name": "外国人技術者", "description": "宇宙・海事産業における外国人技術者の在留資格と雇用手続。" },
+      { "slug": "hsp", "name": "高度専門職", "description": "高度専門職ビザ・高度人材ポイント制の制度と活用。" },
+      { "slug": "incorporation", "name": "会社設立", "description": "宇宙・海事分野のスタートアップ設立に関わる手続。" },
+      { "slug": "contract", "name": "契約", "description": "打上げ契約・輸送契約など、両分野の契約実務の論点。" },
+      { "slug": "subsidy", "name": "補助金", "description": "宇宙・海事分野で活用できる補助金・支援制度。" },
+      { "slug": "procedure", "name": "行政手続", "description": "許認可・届出など行政手続の基礎と実務。" },
+      { "slug": "law-reform", "name": "法改正", "description": "両分野に影響する法改正の動向とポイント。" }
+    ]
+  }
+]

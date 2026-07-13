@@ -1,0 +1,19 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.name }}（{{ site.nameEn }}）
+
+> {{ site.tagline }}。行政書士 {{ site.author.name }} が運営。宇宙活動法・宇宙資源法などの宇宙法制と、船舶・港湾・海上運送などの海事制度を、日本の行政手続実務の視点から解説する日本語メディア。
+
+## 主要ページ
+
+- [記事一覧]({{ site.url }}/articles/): 全記事の一覧
+- [カテゴリ一覧]({{ site.url }}/categories/): 宇宙・海事・共通の3グループのカテゴリ
+- [プロフィール]({{ site.url }}/profile/): 運営者情報
+
+## 新着記事
+
+{% for a in collections.articles | limit(20) -%}
+- [{{ a.data.title }}]({{ site.url }}{{ a.url }}): {{ a.data.description }}
+{% endfor %}

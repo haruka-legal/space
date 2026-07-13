@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+title: 記事一覧
+description: 宇宙・海事の制度解説記事の一覧です。
+pagination:
+  data: collections.articles
+  size: 20
+  alias: posts
+permalink: "/articles/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+<div class="wrap">
+  <header class="page-header">
+    <h1>記事一覧</h1>
+    <p>全 {{ collections.articles | length }} 件</p>
+  </header>
+  <div class="page-body">
+    <ul class="card-list cols-3">
+      {% for a in posts %}
+      {% include "partials/article-card.njk" %}
+      {% endfor %}
+    </ul>
+    {% if pagination.pages.length > 1 %}
+    <nav class="pagination" aria-label="ページ送り">
+      {% for pageUrl in pagination.hrefs %}
+      {% if page.url == pageUrl %}<span aria-current="page">{{ loop.index }}</span>
+      {% else %}<a href="{{ pageUrl }}">{{ loop.index }}</a>{% endif %}
+      {% endfor %}
+    </nav>
+    {% endif %}
+  </div>
+</div>

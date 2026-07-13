@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: カテゴリ一覧
+description: 宇宙・海事・共通テーマのカテゴリ一覧です。
+permalink: /categories/
+---
+<div class="wrap">
+  <header class="page-header">
+    <h1>カテゴリ一覧</h1>
+  </header>
+  <div class="page-body">
+    {% for group in categories %}
+    <div class="cat-group">
+      <h2 id="{{ group.slug }}">{{ group.name }}</h2>
+      <ul class="cat-grid">
+        {% for c in group.items %}
+        {% set count = collections.articles | byCategory(c.slug) | length %}
+        <li><a href="/categories/{{ c.slug }}/">
+          <span class="cat-name">{{ c.name }}</span><span class="cat-count">{{ count }}件</span>
+          <p class="cat-desc">{{ c.description }}</p>
+        </a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+title: プロフィール・代表挨拶
+description: 宇宙海事レビュー運営者、行政書士 岸はるかの代表挨拶とプロフィールです。
+permalink: /profile/
+---
+<div class="wrap-narrow">
+  <header class="page-header">
+    <p class="section-eyebrow">Greeting</p>
+    <h1>代表挨拶</h1>
+  </header>
+
+  <div class="page-body">
+
+    <div class="greeting-head">
+      <p class="greeting-name">岸 はるか</p>
+      <p class="greeting-title">行政書士｜{{ site.brandSub }} 代表</p>
+    </div>
+
+    <div class="greeting-photos">
+      <!-- TODO: 写真を差し替えてください（/src/assets/images/ に配置） -->
+      <img src="/assets/images/profile_main.svg" alt="岸はるか プロフィール写真" width="800" height="1067" loading="lazy">
+      <img src="/assets/images/profile_sub.svg" alt="海での活動写真" width="800" height="600" loading="lazy">
+    </div>
+
+    <div class="greeting-text">
+      <!-- TODO: 挨拶文はあとで差し替え予定（以下はドラフト） -->
+      <p>はじめまして。本サイトを運営する行政書士の岸です。</p>
+      <p>本業は国際業務——在留資格や外国人雇用のサポートです。そのかたわらで、宇宙と海事という2つの分野の制度・行政手続を、長期の専門領域として研究し続けています。</p>
+      <p>ロケットは港から運ばれ、洋上の船から回収され、海辺の射場から宇宙へ向かいます。海と宇宙は、産業の現場で静かにつながっています。ところが、その両方を「制度の言葉」で語れる専門家は、まだほとんどいません。</p>
+      <p>だからこのサイトでは、宇宙活動法から船舶の登録まで、2つの分野の制度を一つひとつ、実務家の目線で記録していきます。10年後にも参照される「制度の海図」を残すことが、このメディアの目標です。</p>
+    </div>
+
+    <blockquote class="greeting-quote">
+      <p class="greeting-quote-label">— なぜ、海と宇宙なのか</p>
+      <p>私はずっと海が好きで、ダイビングのライセンスと船舶免許を持っています。水平線を見ていると、その先に空があり、空の先には宇宙があります。海と宇宙は、境界のない一続きの世界です。</p>
+      <p>本サイトのシンボルである「水平線」のラインには、その2つの世界を制度の側からつなぎたい、という思いを込めています。現在は海事分野の専門性を深めるため、海事代理士資格の取得に向けて研鑽中です。</p>
+    </blockquote>
+
+    <div class="greeting-private">
+      <p class="greeting-private-label">プライベート</p>
+      <p>旅も海も宇宙も大好きです。国内外の離島を巡り、ダイビングを楽しみ、JAXAやNASA、各地の天文台にも足を運んでいます。</p>
+      <ul class="hobby-tags">
+        <li>旅行（特に離島）</li>
+        <li>海・ダイビング</li>
+        <li>船舶</li>
+        <li>宇宙・天文台巡り</li>
+        <li>ラテン音楽</li>
+      </ul>
+    </div>
+
+    <p>講演・執筆・取材のご相談は<a href="/contact/">お問い合わせ</a>からお願いします。</p>
+
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "岸はるか",
+    "jobTitle": "行政書士",
+    "description": "{{ site.author.description }}",
+    "url": "{{ site.url }}/profile/"
+  }
+}
+</script>

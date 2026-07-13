@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: "/tags/{{ tag.name | tagSlug }}/"
+eleventyComputed:
+  title: "タグ: {{ tag.name }}"
+  description: "「{{ tag.name }}」に関する記事の一覧です。"
+---
+<div class="wrap">
+  <nav class="breadcrumbs" style="padding-top:1.5rem" aria-label="パンくずリスト">
+    <ol>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/tags/">タグ一覧</a></li>
+      <li aria-current="page">{{ tag.name }}</li>
+    </ol>
+  </nav>
+  <header class="page-header" style="padding-top:0"><h1>#{{ tag.name }}</h1></header>
+  <div class="page-body">
+    <ul class="card-list cols-3">
+      {% for a in collections.articles | byTag(tag.name) %}
+      {% include "partials/article-card.njk" %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

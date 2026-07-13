@@ -1,0 +1,124 @@
+---
+layout: layouts/base.njk
+isArticle: true
+---
+{% set cat = category | categoryInfo(categories) %}
+{% set articles = collections.articles %}
+
+{% block head %}{% endblock %}
+
+<article class="article wrap-narrow">
+
+  <nav class="breadcrumbs" aria-label="パンくずリスト">
+    <ol>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/categories/#{{ cat.groupSlug or '' }}">{{ cat.group }}</a></li>
+      <li><a href="/categories/{{ cat.slug }}/">{{ cat.name }}</a></li>
+      <li aria-current="page">{{ title }}</li>
+    </ol>
+  </nav>
+
+  <header class="article-header">
+    <p class="article-category"><a href="/categories/{{ cat.slug }}/">{{ cat.name }}</a></p>
+    <h1>{{ title }}</h1>
+    <p class="article-meta">
+      <time datetime="{{ page.date | dateISO }}">{{ page.date | dateJP }} 公開</time>
+      {% if updated %}<time datetime="{{ updated | dateISO }}">（{{ updated | dateJP }} 更新）</time>{% endif %}
+      ／ 執筆：{{ site.author.name }}
+    </p>
+  </header>
+
+  {% if description %}<p class="article-lead">{{ description }}</p>{% endif %}
+
+  <div class="article-body" data-pagefind-body>
+    {{ content | safe }}
+  </div>
+
+  {% if faq %}
+  <section class="article-faq">
+    <h2>よくある質問</h2>
+    {% for item in faq %}
+    <details class="faq-item">
+      <summary>{{ item.q }}</summary>
+      <p>{{ item.a }}</p>
+    </details>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if tags %}
+  <p class="article-tags">
+    {% for t in tags %}<a class="tag" href="/tags/{{ t | tagSlug }}/">#{{ t }}</a>{% endfor %}
+  </p>
+  {% endif %}
+
+  <aside class="author-box">
+    <p class="author-box-name">執筆：{{ site.author.name }}</p>
+    <p>{{ site.author.description }} <a href="/profile/">プロフィールを見る</a></p>
+  </aside>
+
+  {% set relatedItems = collections.articles | related({ url: page.url, date: page.date, data: { category: category, tags: tags } }) %}
+  {% if relatedItems.length %}
+  <section class="related">
+    <h2>関連記事</h2>
+    <ul class="card-list">
+      {% for a in relatedItems %}
+      {% include "partials/article-card.njk" %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | dump | safe }},
+  "description": {{ (description or "") | dump | safe }},
+  "datePublished": "{{ page.date | dateISO }}",
+  {% if updated %}"dateModified": "{{ updated | dateISO }}",{% endif %}
+  "inLanguage": "ja",
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}/profile/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.author.name }}"
+  },
+  "articleSection": "{{ cat.name }}"{% if tags %},
+  "keywords": {{ tags | join(", ") | dump | safe }}{% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ cat.name }}", "item": "{{ site.url }}/categories/{{ cat.slug }}/" },
+    { "@type": "ListItem", "position": 3, "name": {{ title | dump | safe }}, "item": "{{ site.url }}{{ page.url }}" }
+  ]
+}
+</script>
+{% if faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in faq %}
+    {
+      "@type": "Question",
+      "name": {{ item.q | dump | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | dump | safe }} }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}

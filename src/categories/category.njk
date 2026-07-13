@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: flatCategories
+  size: 1
+  alias: cat
+permalink: "/categories/{{ cat.slug }}/"
+eleventyComputed:
+  title: "{{ cat.name }}"
+  description: "{{ cat.description }}"
+---
+<div class="wrap">
+  <nav class="breadcrumbs" style="padding-top:1.5rem" aria-label="パンくずリスト">
+    <ol>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/categories/">カテゴリ一覧</a></li>
+      <li aria-current="page">{{ cat.name }}</li>
+    </ol>
+  </nav>
+  <header class="page-header" style="padding-top:0">
+    <h1>{{ cat.name }}</h1>
+    <p>{{ cat.description }}</p>
+  </header>
+  <div class="page-body">
+    {% set items = collections.articles | byCategory(cat.slug) %}
+    {% if items.length %}
+    <ul class="card-list cols-3">
+      {% for a in items %}
+      {% include "partials/article-card.njk" %}
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>このカテゴリの記事は準備中です。</p>
+    {% endif %}
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ cat.name }}",
+  "description": "{{ cat.description }}",
+  "url": "{{ site.url }}/categories/{{ cat.slug }}/",
+  "isPartOf": { "@type": "WebSite", "name": "{{ site.name }}", "url": "{{ site.url }}/" }
+}
+</script>

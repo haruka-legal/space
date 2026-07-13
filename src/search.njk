@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: サイト内検索
+description: 宇宙海事レビューの記事を検索できます。
+permalink: /search/
+---
+<div class="wrap-narrow">
+  <header class="page-header"><h1>サイト内検索</h1></header>
+  <div class="page-body">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <div id="search"></div>
+    <script src="/pagefind/pagefind-ui.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        new PagefindUI({ element: "#search", showSubResults: true, translations: {
+          placeholder: "キーワードを入力",
+          zero_results: "「[SEARCH_TERM]」に一致する記事は見つかりませんでした"
+        }});
+      });
+    </script>
+  </div>
+</div>

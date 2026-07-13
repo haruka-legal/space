@@ -1,0 +1,9 @@
+{% set c = a.data.category | categoryInfo(categories) %}
+<li class="card">
+  <a class="card-link" href="{{ a.url }}">
+    <p class="card-category">{{ c.name }}</p>
+    <p class="card-title">{{ a.data.title }}</p>
+    <p class="card-desc">{{ a.data.description or (a.templateContent | excerpt) }}</p>
+    <time class="card-date" datetime="{{ a.date | dateISO }}">{{ a.date | dateJP }}</time>
+  </a>
+</li>

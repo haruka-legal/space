@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title %}{{ title }}｜{{ site.name }}{% else %}{{ site.name }}｜{{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{{ description or site.tagline }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="{% if layout == 'layouts/article.njk' or isArticle %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.name }}{% endif %}">
+<meta property="og:description" content="{{ description or site.tagline }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="ja_JP">
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.name }}",
+  "alternateName": "{{ site.nameEn }}",
+  "url": "{{ site.url }}/",
+  "description": "{{ site.tagline }}",
+  "inLanguage": "ja",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}/profile/"
+  }
+}
+</script>
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-name">{{ site.name }}</span>
+      <span class="brand-sub">{{ site.brandSub }}</span>
+    </a>
+    <nav class="site-nav" aria-label="サイト内メニュー">
+      <a href="/articles/">記事一覧</a>
+      <a href="/categories/#space">宇宙</a>
+      <a href="/categories/#maritime">海事</a>
+      <a href="/categories/">カテゴリ</a>
+      <a href="/profile/">プロフィール</a>
+      <a href="/search/">検索</a>
+      <a href="/contact/">お問い合わせ</a>
+    </nav>
+  </div>
+  <div class="horizon" aria-hidden="true"></div>
+</header>
+
+{% if site.notice %}
+<div class="site-notice" role="status">
+  <div class="wrap">{{ site.notice }}</div>
+</div>
+{% endif %}
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  <div class="horizon horizon-up" aria-hidden="true"></div>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">{{ site.name }}</p>
+      <p class="footer-sub">{{ site.brandSub }}</p>
+      <p class="footer-tagline">{{ site.tagline }}</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターメニュー">
+      <a href="/articles/">記事一覧</a>
+      <a href="/categories/">カテゴリ一覧</a>
+      <a href="/tags/">タグ一覧</a>
+      <a href="/profile/">プロフィール</a>
+      <a href="/contact/">お問い合わせ</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+    <p class="footer-note">本サイトの記事は一般的な制度解説であり、個別案件への法的助言ではありません。</p>
+    <p class="copyright">&copy; {{ site.name }}</p>
+  </div>
+</footer>
+</body>
+</html>
